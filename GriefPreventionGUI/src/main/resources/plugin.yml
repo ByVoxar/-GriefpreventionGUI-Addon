@@ -1,0 +1,33 @@
+name: GriefPreventionGUI
+version: '${version}'
+
+main: tr.voseraproject.griefPreventionGUI.GriefPreventionGUI
+api-version: '1.21'
+load: POSTWORLD
+
+authors: [ ByVoxar ]
+website: https://voseraproject.tr
+
+depend: [GriefPrevention, Vault]
+commands:
+  claimgui:
+    description: "Claim yonetim arayuzunu acar."
+    aliases: [cgui, claimpanel]
+  claimlerim:
+    description: "Tum arazilerinizi listeler."
+    aliases: [clist, claimlist]
+  claimsatış:
+    description: "Satilik ilanlarin bulundugu emlak pazarini acar."
+    aliases: [claimsatis, claimpazari]
+  claimsat:
+    description: "Bulundugunuz araziyi satisa cikarir."
+    usage: "/claimsat <fiyat>"
+  claimreload:
+    description: Config dosyasini ve ayarlari yeniden yukler.
+    permission: griefpreventiongui.admin
+    usage: /<command>
+
+  permissions:
+    griefpreventiongui.admin:
+      description: Eklentiyi reload etme ve yonetme yetkisi.
+      default: op

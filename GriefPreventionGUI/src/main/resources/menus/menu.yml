@@ -1,0 +1,223 @@
+main-menu:
+  title: "&8Claim Yönetim Paneli"
+  size: 27
+  fill-item: GRAY_STAINED_GLASS_PANE
+
+  items:
+    info:
+      slot: 10
+      material: BELL
+      name: "&6Claim Bilgileri"
+      lore:
+        - "&7Boyut: &e%width% x %height%"
+        - "&7Merkez: &eX: %cx% Z: %cz%"
+        - "&7Kalan Süre: &a%remaining%"
+
+    members:
+      slot: 11
+      material: PLAYER_HEAD
+      name: "&e&lÜye Yönetimi"
+      lore:
+        - "&7Araziye üye eklemek veya"
+        - "&7üyeleri çıkarmak için tıklayın."
+
+    expiry:
+      slot: 12
+      material: CLOCK
+      name: "&d&lSüre Uzatma"
+      lore:
+        - "&7Mevcut süreyi uzatmak veya"
+        - "&7azaltmak için tıklayın."
+
+    settings:
+      slot: 14
+      material: SPYGLASS
+      name: "&b&lClaim Ayarları"
+      lore:
+        - "&7Yabancıların izinlerini ve"
+        - "&7filtreleri değiştirmek için tıklayın."
+
+    delete:
+      slot: 16
+      material: BARRIER
+      name: "&c&lAraziyi Sil"
+      lore:
+        - "&7Bu claimi tamamen ortadan"
+        - "&7kaldırmak için tıklayın."
+
+expiry-menu:
+  title: "&8Süre Uzatma Menüsü"
+  size: 27
+
+  items:
+    add:
+      slot: 11
+      material: LIME_DYE
+      name: "&a1 Gün Uzat"
+      lore:
+        - "&7Ücret: &e%price%$"
+        - "&8Tıklayarak süreyi arttırın."
+
+    remove:
+      slot: 15
+      material: RED_DYE
+      name: "&c1 Gün Azalt"
+      lore:
+        - "&7Süreyi 1 gün geri çeker."
+
+delete-menu:
+  title: "&#cc0000Claim Silme Onayı"
+  size: 27
+
+  items:
+    confirm:
+      slot: 13
+      material: TNT
+      name: "&4&lKalıcı Olarak Sil"
+      lore:
+        - "&7Silme Ücreti: &e%price%$"
+        - "&cUYARI: Bloklar kesinlikle iade edilmez!"
+
+members-menu:
+  title: "&8Claim Üyeleri Paneli"
+  size: 27
+  fill-item: GRAY_STAINED_GLASS_PANE
+
+  items:
+    add:
+      slot: 22
+      material: ANVIL
+      name: "&e&l[+] Yeni Üye Ekle"
+      lore:
+        - "&7Sohbete isim yazarak yeni"
+        - "&7bir üye ekleyin."
+
+    back:
+      slot: 18
+      material: ARROW
+      name: "&cGeri Dön"
+      lore: []
+
+    member-entry:
+      material: PLAYER_HEAD
+      name: "&a%player%"
+      lore:
+        - "&7Durum: &eÜye (Trust)"
+        - "&cTıklayarak Üyelikten Çıkar"
+
+
+settings-menu:
+  title: "&8Claim Ayarları"
+  size: 45
+  fill-item: GRAY_STAINED_GLASS_PANE
+  back-slot: 40
+  items:
+    animal-spawn:
+      slot: 10
+      material: COW_SPAWN_EGG
+      name: "&eHayvan Doğumu"
+      desc: "Arazide pasif canlıların doğması."
+
+    monster-spawn:
+      slot: 11
+      material: ZOMBIE_SPAWN_EGG
+      name: "&cCanavar Doğumu"
+      desc: "Arazide canavarların doğması."
+
+    spawner-spawn:
+      slot: 12
+      material: SPAWNER
+      name: "&dSpawner Doğumu"
+      desc: "Kafeslerden (Spawner) mob çıkması."
+
+    pvp:
+      slot: 19
+      material: DIAMOND_SWORD
+      name: "&4PvP Modu"
+      desc: "Oyuncuların birbirine hasar vermesi."
+
+    block-break:
+      slot: 20
+      material: DIAMOND_PICKAXE
+      name: "&bYabancı: Blok Kırma"
+      desc: "Güvenilmeyenlerin blok kırma izni."
+
+    block-place:
+      slot: 21
+      material: BRICK
+      name: "&6Yabancı: Blok Koyma"
+      desc: "Güvenilmeyenlerin blok koyma izni."
+
+    spawner-break:
+      slot: 22
+      material: NETHERITE_PICKAXE
+      name: "&5Yabancı: Spawner Kırma"
+      desc: "Yabancıların spawnerları kırabilmesi."
+
+    container-open:
+      slot: 28
+      material: CHEST
+      name: "&6Yabancı: Sandık / Konteyner"
+      desc: "Sandık, varil ve huni açabilme izni."
+
+    interact:
+      slot: 29
+      material: OAK_DOOR
+      name: "&aYabancı: Etkileşim (Kapı/Şalter)"
+      desc: "Kapı, buton ve şalterleri kullanma izni."
+
+    villager-trade:
+      slot: 30
+      material: EMERALD
+      name: "&dYabancı: Köylü Ticareti"
+      desc: "Köylülerle alışveriş yapabilme izni."
+
+    armor-stand:
+      slot: 31
+      material: ARMOR_STAND
+      name: "&fYabancı: Dekorasyon Etkileşimi"
+      desc: "Zırh askısı ve tablolara müdahale."
+
+    inventory-pickup:
+      slot: 32
+      material: HOPPER
+      name: "&8Yabancı: Eşya Toplama"
+      desc: "Yerden eşya toplayabilme kontrolü."
+
+claim-list-menu:
+  title: "&8Tüm Claim Arazileriniz"
+  size: 54
+
+  item:
+    material: MAP
+    name: "&6&lClaim Arazi #%id%"
+    lore:
+      - "&7&m-----------------------"
+      - "&fDünya: &e%world%"
+      - "&fKoordinat: &eX: %cx% &7| &eZ: %cz%"
+      - "&fBoyut: &b%width%x%height% (%area% Blok)"
+      - "&fKalan Süre: &6%days% %day_word%, %hours% %hour_word%"
+      - "&7&m-----------------------"
+      - "&a&l[SAĞ TIKLA] &7Bu araziye ışınlan"
+      - "&e&l[SOL TIKLA] &7Claim menüsünü aç"
+
+market-menu:
+  title: "&0Satılık Claim Pazarı"
+  size: 54
+
+  item:
+    material: GOLD_INGOT
+    name: "&6&lSatılık Arazi #%id%"
+    lore:
+      - "&7&m-----------------------"
+      - "&fSatıcı: &e%seller%"
+      - "&fFiyat: &a%price%$"
+      - "&7&m-----------------------"
+      - "&fDünya: &7%world%"
+      - "&fKoordinat: &7X: %cx% | Z: %cz%"
+      - "&fBoyut: &7%width%x%height% (%area% Blok)"
+      - "&fKalan Ömür: &d%days% %day_word%, %hours% %hour_word%"
+      - "&7&m-----------------------"
+      - "&e&l[SOL TIKLA] &7Araziye Işınlan"
+      - "&a&l[SAĞ TIKLA] &7Araziyi Satın Al"
+      - "&c[Orta Tık] &eSatıştan Kaldır &8(Sahibine Özel)"

@@ -1,0 +1,15 @@
+# Aktif dil dosyası (languages/ klasöründe aranır)
+language: "lang_tr"
+
+# Claim başına günlük ücret (süre uzatma)
+daily-price: 100.0
+
+# Claim silme ücreti
+delete-price: 500.0
+
+# Discord Bot Entegrasyonu
+discord-bot:
+  enabled: true
+  token: "BURAYA_BOT_TOKENI_GELECEK"
+  market-channel-id: "BURAYA_PAZAR_KANAL_ID_GELECEK"
+  expired-channel-id: "BURAYA_SURE_BITTI_KANAL_ID_GELECEK"

@@ -1,0 +1,69 @@
+prefix: "&7[&#ffaa00GPGUI&7] &r"
+
+# --- Genel Hatalar ---
+not-in-claim: "&#ff3333Bir claim alanında değilsiniz!"
+not-claim-owner: "<red>Bu claim alanının sahibi siz değilsiniz!</red>"
+not-enough-money: "&cYetersiz bakiye! Gerekli: &e%amount%"
+action-success: "&aİşlem başarıyla gerçekleştirildi!"
+no-permission: "&cBu komutu kullanmak için yetkiniz yok!"
+claim-deleted: "<red>Claim başarıyla silindi ve ücret tahsil edildi.</red>"
+no-claims: "&cHiç claim araziniz bulunmuyor!"
+teleported-to-claim: "&aClaim arazinize başarıyla ışınlandınız!"
+enter-member-name: "&eSohbete üye eklemek istediğiniz oyuncunun adını yazın!"
+player-not-found: "&cBelirtilen oyuncu bulunamadı veya hiç sunucuya giriş yapmamış!"
+reload-success: "&a[GriefPreventionGUI] Tüm konfigürasyon dosyaları başarıyla yenilendi!"
+console-only: "Bu komut sadece oyuncular için geçerlidir."
+
+# --- Claim Listesi ---
+claim-id-not-found: "&cClaim ID bulunamadı! Menüyü yeniden açın."
+claim-id-invalid: "&cGeçersiz Claim ID! Config'de title-format içinde %id% olduğundan emin olun."
+
+# --- /claimsat ---
+claimsat-usage: "&cKullanım: /claimsat <fiyat>"
+claimsat-negative-price: "&cFiyat sıfırdan küçük olamaz!"
+claimsat-invalid-price: "&cLütfen geçerli bir sayısal fiyat girin!"
+claimsat-success: "&aArsan başarıyla &e%price%$ &afiyatla pazara eklendi!"
+
+# --- Pazar (Market) ---
+market-not-owner-remove: "&cBu arsayı satıştan kaldırmak için sahibi olmalısın!"
+market-removed: "&cArsan başarıyla satıştan kaldırıldı!"
+market-self-buy: "&cKendi arsanızı satın alamazsınız!"
+market-buy-success: "&aTebrikler! Bu arsayı &e%price%$ &akarşılığında başarıyla satın aldınız!"
+market-not-enough-money: "&cBu arsayı almak için yeterli paranız yok! Gereken: &e%price%$"
+
+# --- Ayar Durumları ---
+status-on: "&#00ff00Açık"
+status-off: "&#ff0000Kapalı"
+status-prefix: "&7Durum: "
+settings-change-hint: "&8Değiştirmek için tıklayın."
+
+# --- Zaman Birimleri ---
+words:
+  day: "Gün"
+  hour: "Saat"
+  minute: "Dakika"
+
+# --- Discord Embed Metinleri ---
+discord:
+  expired-title: "⏰ Bir Claim'in Süresi Sona Erdi!"
+  expired-desc: "Süresi uzatılmayan bir claim arazisi sistem tarafından otomatik olarak silindi."
+  expired-field-owner: "Eski Sahibi"
+  expired-field-date: "Silinme Tarihi"
+  expired-field-size: "Boyut"
+  expired-field-coords: "Koordinatlar"
+
+  market-title: "⛺ Pazarda Yeni Satılık Arazi!"
+  market-desc: "Bir oyuncu claim arazisini pazarda satışa sundu. Satın almak için pazar menüsünü açabilirsiniz."
+  market-field-seller: "Satıcı (Sahibi)"
+  market-field-price: "Satış Fiyatı"
+  market-field-size: "Boyut"
+  market-field-coords: "Koordinatlar"
+  market-field-remaining: "Kalan Süresi"
+
+  # Koordinat & boyut format şablonları
+  coords-format: "X: %x% | Y: %y% | Z: %z%"
+  size-format: "%w%x%h% (%area% Blok)"
+  remaining-format: "%days% Gün %hours% Saat"
+  price-format: "%price%$"
+  date-format: "dd/MM/yyyy HH:mm"
+  unknown-owner: "Bilinmeyen Sahip"
