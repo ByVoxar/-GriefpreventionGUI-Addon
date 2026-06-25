@@ -16,7 +16,6 @@ import tr.voseraproject.griefPreventionGUI.managers.ClaimExpirationManager;
 import tr.voseraproject.griefPreventionGUI.managers.ClaimMenuManager;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -35,8 +34,8 @@ public final class GriefPreventionGUI extends JavaPlugin {
     private ClaimMenuManager menuManager;
     private ClaimExpirationManager expirationManager;
     private final MiniMessage miniMessage = MiniMessage.miniMessage();
-    private final Pattern hexPattern = Pattern.compile("(&#|#)([A-Fa-f0-9]{6})");
-
+    private final Pattern hexShortPattern = Pattern.compile("(&#|#)([A-Fa-f0-9]{6})");
+    private final Pattern hexLegacyPattern = Pattern.compile("&x(&[A-Fa-f0-9]){6}");
     private final Map<UUID, Long> chatInputPlayers = new HashMap<>();
 
     private FileConfiguration lang;
@@ -91,7 +90,6 @@ public final class GriefPreventionGUI extends JavaPlugin {
     public void onDisable() {
         if (expirationManager != null) expirationManager.saveData();
     }
-
 
     private void saveResourceIfAbsent(String resourcePath) {
         File file = new File(getDataFolder(), resourcePath);
@@ -151,26 +149,54 @@ public final class GriefPreventionGUI extends JavaPlugin {
 
     public Component parseRaw(String text) {
         if (text == null) return Component.empty();
-
-        Matcher matcher = hexPattern.matcher(text);
-        StringBuilder sb = new StringBuilder();
-        while (matcher.find()) {
-            matcher.appendReplacement(sb, "<color:#" + matcher.group(2) + ">");
+        Matcher legacyMatcher = hexLegacyPattern.matcher(text);
+        StringBuilder sb1 = new StringBuilder();
+        while (legacyMatcher.find()) {
+            String match = legacyMatcher.group();
+            StringBuilder hex = new StringBuilder("#");
+            for (int i = 2; i < match.length(); i += 2) {
+                hex.append(match.charAt(i));
+            }
+            legacyMatcher.appendReplacement(sb1, "<color:" + hex + ">");
         }
-        matcher.appendTail(sb);
-        text = sb.toString();
+        legacyMatcher.appendTail(sb1);
+        text = sb1.toString();
+        Matcher shortMatcher = hexShortPattern.matcher(text);
+        StringBuilder sb2 = new StringBuilder();
+        while (shortMatcher.find()) {
+            shortMatcher.appendReplacement(sb2, "<color:#" + shortMatcher.group(2) + ">");
+        }
+        shortMatcher.appendTail(sb2);
+        text = sb2.toString();
+        text = text
+                .replace("&0", "<black>")
+                .replace("&1", "<dark_blue>")
+                .replace("&2", "<dark_green>")
+                .replace("&3", "<dark_aqua>")
+                .replace("&4", "<dark_red>")
+                .replace("&5", "<dark_purple>")
+                .replace("&6", "<gold>")
+                .replace("&7", "<gray>")
+                .replace("&8", "<dark_gray>")
+                .replace("&9", "<blue>")
+                .replace("&a", "<green>")
+                .replace("&b", "<aqua>")
+                .replace("&c", "<red>")
+                .replace("&d", "<light_purple>")
+                .replace("&e", "<yellow>")
+                .replace("&f", "<white>")
+                .replace("&r", "<reset>")
+                .replace("&l", "<bold>")
+                .replace("&o", "<italic>")
+                .replace("&n", "<underlined>")
+                .replace("&m", "<strikethrough>")
+                .replace("&k", "<obfuscated>");
 
-        text = text.replace("&0", "<black>").replace("&1", "<dark_blue>").replace("&2", "<dark_green>")
-                .replace("&3", "<dark_aqua>").replace("&4", "<dark_red>").replace("&5", "<dark_purple>")
-                .replace("&6", "<gold>").replace("&7", "<gray>").replace("&8", "<dark_gray>")
-                .replace("&9", "<blue>").replace("&b", "<aqua>")
-                .replace("&c", "<red>").replace("&d", "<light_purple>").replace("&e", "<yellow>")
-                .replace("&f", "<white>").replace("&r", "<reset>").replace("&l", "<bold>")
-                .replace("&o", "<italic>").replace("&n", "<underlined>").replace("&m", "<strikethrough>")
-                .replace("&k", "<obfuscated>").replace("&a", "<green>");
+        text = "<italic:false>" + text;
 
         return miniMessage.deserialize(text);
     }
+
 
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) return false;
