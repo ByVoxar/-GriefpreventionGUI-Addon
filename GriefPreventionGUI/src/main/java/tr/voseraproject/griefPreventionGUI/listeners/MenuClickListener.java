@@ -297,10 +297,23 @@ public class MenuClickListener implements Listener {
             Claim claim = GriefPrevention.instance.dataStore.getClaim(claimId);
             if (claim == null || !claim.getOwnerName().equals(player.getName())) return;
 
-            String targetName = plain(event.message());
-            org.bukkit.OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(targetName);
-            if (targetPlayer.getName() == null) {
+            String input = plain(event.message()).trim();
+
+            if (input.equalsIgnoreCase("iptal")) {
+                player.sendMessage(plugin.parseMsg("member-add-cancelled"));
+                plugin.getMenuManager().openMembersMenu(player, claim);
+                return;
+            }
+
+            Player targetPlayer = Bukkit.getPlayerExact(input);
+            if (targetPlayer == null) {
                 player.sendMessage(plugin.parseMsg("player-not-found"));
+                plugin.getMenuManager().openMembersMenu(player, claim);
+                return;
+            }
+
+            if (targetPlayer.getUniqueId().equals(player.getUniqueId())) {
+                player.sendMessage(plugin.parseMsg("member-add-self"));
                 plugin.getMenuManager().openMembersMenu(player, claim);
                 return;
             }
